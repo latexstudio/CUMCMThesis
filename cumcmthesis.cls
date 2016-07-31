@@ -4,6 +4,7 @@
  Standard LaTeX document class]
 %% Inital Code 
 \newif\if@mcm@bwprint\@mcm@bwprintfalse
+\newif\if@mcm@preface\@mcm@prefacetrue
 % tokens definition
 %%%% 承诺书
 \newcommand\mcm@tokens@keywords{}
@@ -22,6 +23,7 @@
 %% Declaration of Options 
 \DeclareOption{colorprint}{\@mcm@bwprintfalse}
 \DeclareOption{bwprint}{\@mcm@bwprinttrue}
+\DeclareOption{withoutpreface}{\@mcm@prefacefalse}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 %% Executing of Options
 \ExecuteOptions{colorprint}
@@ -203,6 +205,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 }
 \def\@maketitle{%
   \newpage
+  \if@mcm@preface
   \null
  % 承诺书
  \vskip2ex
@@ -242,12 +245,15 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 	\vfill
 	\null
 % 编号专用页
+	\else
+	\fi
 	\makeothertitle
 	}
 
 %% 定义 编号专用页
 \def\makeothertitle{%
-\par
+  \if@mcm@preface
+  \par
 \newpage
 \null
 \thispagestyle{empty}
@@ -291,6 +297,11 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \setcounter{page}{1}
 {\centering \zihao{3}\bfseries \@title\par}
 \vskip1ex
+\else
+\setcounter{page}{1}
+{\centering \zihao{3}\bfseries \@title\par}
+\vskip1ex
+\fi
 }
 
 % 中文标题名称设置
@@ -337,7 +348,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %% 摘要两个字设置为 4 号.
 %% 定义摘要环境
 \renewenvironment{abstract}{%
-	\if@twocolumn
+\if@twocolumn
 		\section*{\abstractname}%
 	\else
 	 \begin{center}%
