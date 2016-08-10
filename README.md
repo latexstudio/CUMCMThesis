@@ -8,6 +8,7 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的LaTeX模板, 旨在�
 
 另外, 本模板制作了视频使用教程, 参看[这里](https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-3473795048.2.ZlPoPL&id=43823508044).
 
+![](https://github.com/latexstudio/CUMCMThesis/blob/master/screenshot.png)
 
 # 更新记录
 

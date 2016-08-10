@@ -83,7 +83,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{hyperref}
 %% Document Layout
 % 页面布局
-\geometry{top=25mm,bottom=20mm,left=25mm,right=25mm}
+\geometry{top=25mm,bottom=25mm,left=25mm,right=25mm}
 \renewcommand*{\baselinestretch}{1.38}
 % 修改tabular 环境, 设置表格中的行间距为正文行间距.
 \let\mcm@oldtabular\tabular
