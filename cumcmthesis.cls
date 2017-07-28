@@ -1,8 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{cumcmthesis}
-              [2015/08/22 v2.0
- Standard LaTeX document class]
-%% Inital Code 
+              [2017/07/27 v2.5 Standard LaTeX Template for CUMCM]
+%% Inital Code
 \newif\if@mcm@bwprint\@mcm@bwprintfalse
 \newif\if@mcm@preface\@mcm@prefacetrue
 % tokens definition
@@ -20,7 +19,7 @@
 \newcommand*\mcm@tokens@dayinput{}
 %%%% 编号专用页
 % 没有
-%% Declaration of Options 
+%% Declaration of Options
 \DeclareOption{colorprint}{\@mcm@bwprintfalse}
 \DeclareOption{bwprint}{\@mcm@bwprinttrue}
 \DeclareOption{withoutpreface}{\@mcm@prefacefalse}
@@ -46,8 +45,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
 \RequirePackage{bm}
-% 设置字体
-\RequirePackage{fontspec}
 % 设置颜色
 \RequirePackage{xcolor}
 % 插入图片
@@ -68,13 +65,38 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{cprotect}
 % 设置代码环境
 \RequirePackage{listings}
+\RequirePackage{xcolor}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+  frame=tb,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  framerule=1pt,
+  rulecolor=\color{gray!35},
+  backgroundcolor=\color{gray!5},
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+}
 % 首行缩进
 \RequirePackage{indentfirst}
 % 设置浮动体的标题
 \RequirePackage{caption}
 % 定制列表环境
 \RequirePackage{enumitem}
-% 下划线 
+% 下划线
 \RequirePackage{ulem}
 % 尺寸计算
 \RequirePackage{calc}
@@ -97,8 +119,10 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \setlength\parindent{2em}
 % 设置字体
 \setmainfont{Times New Roman}
-\setmonofont{Courier New}
+%\setmonofont{Courier New}
 \setsansfont{Arial}
+\newCJKfontfamily[song]\song{SimSun}[AutoFakeBold]
+\newCJKfontfamily[kai]\kai{simkai.ttf}[AutoFakeBold]
 \renewcommand\normalsize{%
 	\@setfontsize\normalsize{12.05}{14.45}%
 	\abovedisplayskip 12\p@ \@plus3\p@ \@minus7\p@
@@ -166,20 +190,34 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 }
 
 % 超链接
-\AtBeginDocument{%
 	\hypersetup{%
+        xetex,
 		% unicode=false, % hyperref 和 xetex 同时使用时不能开启 Unicode 选项.
-		hyperfootnotes=true,
-		hyperindex=true,
-		colorlinks=true,
-		bookmarksnumbered=true,
-		bookmarksopen=true,
- 		bookmarksopenlevel=0,
+        pdfstartview=FitH,
+        CJKbookmarks=true,
+        bookmarksnumbered=true,
+        bookmarksopen=true,
+        colorlinks, %注释掉此项则交叉引用为彩色边框(将colorlinks和pdfborder同时注释掉)
+        pdfborder=001,   %注释掉此项则交叉引用为彩色边框
+		allcolors=blue,
 		breaklinks=true}%
-}
 \if@mcm@bwprint
 \AtBeginDocument{\hypersetup{hidelinks}}
 \else\relax\fi
+\lstnewenvironment{tcode}
+  {
+    \lstset{basicstyle = \small\ttfamily,
+        language=TeX,
+        tabsize = 4,
+        frame = single,
+        escapechar = `,
+        breaklines = true,
+        breakatwhitespace = true,
+        frameround = tttt,
+    }
+  }
+  {}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Document Markup
@@ -226,13 +264,14 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     \settowidth{\mcm@lenB}{\mcm@commit@string@membername\hspace{1em}1.}
     \setlength{\mcm@lenB}{\textwidth-\mcm@lenB}
     % 不这样做右边难以对齐!
-    \mcm@commit@string@membername     
+    \mcm@commit@string@membername
     \begin{minipage}[t]{\mcm@lenB}
    	1.\uline{\hspace{1em}\mcm@tokens@membera\hfill} \makebox[0.46em]{}\par
    	2.\uline{\hspace{1em}\mcm@tokens@memberb\hfill} \makebox[0.46em]{}\par
    	3.\uline{\hspace{1em}\mcm@tokens@memberc\hfill} \makebox[0.46em]{}\par
    \end{minipage}\par\vskip1ex
-    \mcm@commit@string@supervisorname\uline{\hspace{1em}\mcm@tokens@supervisor\hfill}\makebox[0.66em]{}
+    \mcm@commit@string@supervisorname\uline{\hspace{1em}\mcm@tokens@supervisor\hfill}\makebox[0.66em]{}\par
+    （{\kaishu 指导教师签名意味着对参赛队的行为和论文的真实性负责}）
     %{\kaishu\mcm@commit@string@inform\par}
     \vskip2ex
     \newlength{\mcm@lenA}
@@ -318,8 +357,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 中文标题格式设置
 % 目录深度
 \setcounter{secnumdepth}{2}
-% 节标题格式, 居中, 使用\chinese命令修改计数器, \kern 使得数字和内容不至于太远
-\renewcommand\thesection{\chinese{section}、\kern-1em}
+% 节标题格式, 居中, 使用\chinese命令修改计数器
+\def\@seccntformat#1{\csname the#1\endcsname\ }
+\renewcommand\thesection{\chinese{section}、}
 \renewcommand\thesubsection{\arabic{section}\thinspace.\thinspace\arabic{subsection}}
 \renewcommand\thesubsubsection{\thesubsection\thinspace.\thinspace\arabic{subsubsection}}
 \renewcommand\section{\@startsection{section}{1}{\z@}%
@@ -421,7 +461,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Initialization 
+%% Initialization
  %%%数学定理相关的常量
 \newcommand*{\mcm@cap@definition}{定义}
 \newcommand*{\mcm@cap@theorem}{定理}
@@ -459,11 +499,12 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 我们完全明白，在竞赛开始后参赛队员不能以任何方式（包括电话、电子邮件、网上咨询等）%
 与队外的任何人（包括指导教师）研究、讨论与赛题有关的问题。
 
- 我们知道，抄袭别人的成果是违反竞赛章程和参赛规则的，如果引用别人的成果或其他公开的资料%
-（包括网上查到的资料），必须按照规定的参考文献的表述方式在正文引用处和参考文献中明确列出。
+我们知道，抄袭别人的成果是违反竞赛章程和参赛规则的，如果引用别人的成果或资料（包括网上资料），
+必须按照规定的参考文献的表述方式列出，并在正文引用处予以标注。在网上交
+流和下载他人的论文是严重违规违纪行为。
 
-我们郑重承诺，严格遵守竞赛章程和参赛规则，以保证竞赛的公正、公平性。%
-如有违反竞赛章程和参赛规则的行为，我们将受到严肃处理。
+{\bfseries\song 我们以中国大学生名誉和诚信郑重承诺，严格遵守竞赛章程和参赛规则，以保证竞赛的公正、公平性。
+如有违反竞赛章程和参赛规则的行为，我们将受到严肃处理。}
 
  我们授权全国大学生数学建模竞赛组委会，可将我们的论文以任何形式进行公开展示%
 （包括进行网上公示，在书籍、期刊和其他媒体进行正式或非正式发表等）。
@@ -475,8 +516,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand*\mcm@commit@string@membername{参赛队员 (打印并签名) ：}
 \newcommand*\mcm@commit@string@supervisorname{指导教师或指导教师组负责人  (打印并签名)：}
 \newcommand\mcm@commit@string@inform{\quotation
-\noindent（此承诺书打印签名后作为纸质论文的封面，注意电子版论文中不得出现此页。%
-以上内容请仔细核对，如填写错误，论文可能被取消评奖资格。）
+\noindent（{\bfseries\kai 请勿改动此页内容和格式。此承诺书打印签名后作为纸质论文的封面，注意电子版论文中不得出现此页。%
+以上内容请仔细核对，如填写错误，论文可能被取消评奖资格。}）
 \endquotation
 }
 \newcommand*\mcm@commit@string@date{日期:}
@@ -495,14 +536,10 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand*\mcm@numberpage@string@unifiednum{送全国评阅统一编号（由赛区组委会填写）：}
 \newcommand*\mcm@numberpage@string@countrynum{全国评阅随机编号（由全国组委会填写）：}
 \newcommand\mcm@numberpage@string@inform{\quotation
-\noindent（此编号专用页仅供赛区和全国评阅使用，参赛队打印后装订到纸质论文的第二页上。%
-注意电子版论文中不得出现此页，即电子版论文的第一页为标题、摘要和关键词页。）
+\noindent（{\bfseries\kai 请勿改动此页内容和格式。此编号专用页仅供赛区和全国评阅使用，参赛队打印后装订到纸质论文的第二页上。
+注意电子版论文中不得出现此页。}）
 \endquotation
 }
 
 
 \endinput
-
-
-
-

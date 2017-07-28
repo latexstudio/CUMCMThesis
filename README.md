@@ -1,5 +1,6 @@
 
 ## 全国大学生数学建模竞赛LaTeX论文模板
+
 cumcmthesis 是为全国大学生数学建模竞赛编写的LaTeX模板, 旨在让大家专注于
 论文的内容写作, 而不用花费过多精力在格式的定制和调整上. 本手册是相应的参考, 其
 中提供了一些环境和命令可以让模板的使用更为方便. 同时需要注意, 使用者需要有一
@@ -10,17 +11,18 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的LaTeX模板, 旨在�
 
 视频教程试看的话，请点击：[试看地址](http://v.xue.taobao.com/learn.htm?spm=2013.1.0.0.kx3j3X&courseId=26740).
 
-![](https://github.com/latexstudio/CUMCMThesis/blob/master/screenshot.png)
+![](https://github.com/latexstudio/CUMCMThesis/blob/master/example-1.png)
+
+![](https://github.com/latexstudio/CUMCMThesis/blob/master/example-2.png)
 
 ## 更新记录
 
-2016年8月11日更新:
+2017年7月28日更新:
 
-1. 更新了版面设置为上、下、左、右设置为25mm。
+1. 适配2016年的格式要求，调整了承诺和编号页的内容。
 
-2016年8月1日更新:
+2. 修改了附录的代码输入样式。
 
-1.  增加了可以去掉前面封面页的选项。具体使用如下:
 
 如果需要去掉封面并把论文标题保留在摘要上面，在加载类的使用如下语句：
 
