@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{cumcmthesis}
-              [2017/07/27 v2.5 Standard LaTeX Template for CUMCM]
+              [2017/09/16 v2.6 Standard LaTeX Template for CUMCM]
 %% Inital Code
 \newif\if@mcm@bwprint\@mcm@bwprintfalse
 \newif\if@mcm@preface\@mcm@prefacetrue
@@ -121,8 +121,11 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \setmainfont{Times New Roman}
 %\setmonofont{Courier New}
 \setsansfont{Arial}
-\newCJKfontfamily[song]\song{SimSun}[AutoFakeBold]
-\newCJKfontfamily[kai]\kai{simkai.ttf}[AutoFakeBold]
+\setCJKfamilyfont{kai}[AutoFakeBold]{simkai.ttf}
+\newcommand*{\kai}{\CJKfamily{kai}}
+\setCJKfamilyfont{song}[AutoFakeBold]{SimSun}
+\newcommand*{\song}{\CJKfamily{song}}
+
 \renewcommand\normalsize{%
 	\@setfontsize\normalsize{12.05}{14.45}%
 	\abovedisplayskip 12\p@ \@plus3\p@ \@minus7\p@
@@ -419,7 +422,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 	\gdef\thesection{\appendixname\@Alph\c@section}}		
 % 重定义参考文献环境
 \renewenvironment{thebibliography}[1]
-     {\section{\refname}%
+     {\section*{\refname}%
       \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
       \list{\@biblabel{\@arabic\c@enumiv}}%
            {\settowidth\labelwidth{\@biblabel{#1}}%
@@ -516,8 +519,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand*\mcm@commit@string@membername{参赛队员 (打印并签名) ：}
 \newcommand*\mcm@commit@string@supervisorname{指导教师或指导教师组负责人  (打印并签名)：}
 \newcommand\mcm@commit@string@inform{\quotation
-\noindent（{\bfseries\kai 请勿改动此页内容和格式。此承诺书打印签名后作为纸质论文的封面，注意电子版论文中不得出现此页。%
-以上内容请仔细核对，如填写错误，论文可能被取消评奖资格。}）
+\noindent{（\bfseries\kai 请勿改动此页内容和格式。此承诺书打印签名后作为纸质论文的封面，注意电子版论文中不得出现此页。%
+以上内容请仔细核对，如填写错误，论文可能被取消评奖资格。）}
 \endquotation
 }
 \newcommand*\mcm@commit@string@date{日期:}
@@ -540,6 +543,21 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 注意电子版论文中不得出现此页。}）
 \endquotation
 }
+\newcounter{app}
+\renewcommand\section{%
+    \refstepcounter{app}%
+    \@startsection{section}{1}{\z@}%
+ 	{-3.5ex \@plus -1ex \@minus -.2ex}%
+	{2.3ex \@plus.2ex}%
+	{\centering\normalfont\Large\bfseries}}
 
+\renewcommand\appendix{\par
+    \clearpage
+    \cleardoublepage
+    \phantomsection
+    \setcounter{app}{0}
+    \gdef\thesection{\appendixname\@Alph{\theapp}}
+    \gdef\thesubsection{\thesection\thinspace.\thinspace\arabic{subsection}}
+}
 
 \endinput
