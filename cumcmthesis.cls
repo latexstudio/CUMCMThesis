@@ -45,6 +45,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
 \RequirePackage{bm}
+\RequirePackage{titletoc}
 % 设置颜色
 \RequirePackage{xcolor}
 % 插入图片
@@ -102,7 +103,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{calc}
 
 % 超链接 hyperref 的设置
-\RequirePackage{hyperref}
+%\RequirePackage{hyperref}
 %% Document Layout
 % 页面布局
 \geometry{top=25mm,bottom=25mm,left=25mm,right=25mm}
@@ -193,20 +194,20 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 }
 
 % 超链接
-	\hypersetup{%
-        xetex,
-		% unicode=false, % hyperref 和 xetex 同时使用时不能开启 Unicode 选项.
-        pdfstartview=FitH,
-        CJKbookmarks=true,
-        bookmarksnumbered=true,
-        bookmarksopen=true,
-        colorlinks, %注释掉此项则交叉引用为彩色边框(将colorlinks和pdfborder同时注释掉)
-        pdfborder=001,   %注释掉此项则交叉引用为彩色边框
-		allcolors=blue,
-		breaklinks=true}%
-\if@mcm@bwprint
-\AtBeginDocument{\hypersetup{hidelinks}}
-\else\relax\fi
+	% \hypersetup{%
+        % xetex,
+		% % unicode=false, % hyperref 和 xetex 同时使用时不能开启 Unicode 选项.
+        % pdfstartview=FitH,
+        % CJKbookmarks=true,
+        % bookmarksnumbered=true,
+        % bookmarksopen=true,
+        % colorlinks, %注释掉此项则交叉引用为彩色边框(将colorlinks和pdfborder同时注释掉)
+        % pdfborder=001,   %注释掉此项则交叉引用为彩色边框
+		% allcolors=blue,
+		% breaklinks=true}%
+% \if@mcm@bwprint
+% \AtBeginDocument{\hypersetup{hidelinks}}
+% \else\relax\fi
 \lstnewenvironment{tcode}
   {
     \lstset{basicstyle = \small\ttfamily,
@@ -543,21 +544,12 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 注意电子版论文中不得出现此页。}）
 \endquotation
 }
-\newcounter{app}
-\renewcommand\section{%
-    \refstepcounter{app}%
-    \@startsection{section}{1}{\z@}%
- 	{-3.5ex \@plus -1ex \@minus -.2ex}%
-	{2.3ex \@plus.2ex}%
-	{\centering\normalfont\Large\bfseries}}
-
-\renewcommand\appendix{\par
-    \clearpage
-    \cleardoublepage
-    \phantomsection
-    \setcounter{app}{0}
-    \gdef\thesection{\appendixname\@Alph{\theapp}}
-    \gdef\thesubsection{\thesection\thinspace.\thinspace\arabic{subsection}}
-}
+%设置目录格式
+% 节的目录格式
+\titlecontents{section}[0pt]{\vspace{2mm}\bfseries}
+{\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
+% 小节的目录格式
+\titlecontents{subsection}[30pt]{\songti}
+{\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
 
 \endinput

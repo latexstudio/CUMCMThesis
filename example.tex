@@ -4,7 +4,7 @@
 \documentclass{cumcmthesis}
 %\documentclass[withoutpreface,bwprint]{cumcmthesis} %去掉封面与编号页
 
-
+\usepackage{url}
 \title{全国大学生数学建模竞赛编写的 \LaTeX{} 模板}
 \tihao{A}
 \baominghao{4321}
@@ -23,14 +23,17 @@
  \begin{abstract}
 cumcmthesis 是为全国大学生数学建模竞赛编写的\LaTeX{}模板, 旨在让大家专注于 论文的内容写作, 而不用花费过多精力在格式的定制和调整上. 本手册是相应的参考, 其 中提供了一些环境和命令可以让模板的使用更为方便. 同时需要注意, 使用者需要有一 定的 \LaTeX{} 的使用经验, 至少要会使用常用宏包的一些功能, 比如参考文献，数学公式，图片使用，列表环境等等. 例子文件参看 example.pdf.
 
-另外, 本模板制作了视频使用教程, 参看\href{https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-3473795048.2.ZlPoPL&id=43823508044}{这里}.
+另外, 本模板制作了视频使用教程, 参看\url{https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-3473795048.2.ZlPoPL&id=43823508044}.
 
-视频教程试看的话，请点击：\href{http://v.xue.taobao.com/learn.htm?spm=2013.1.0.0.959eebeTPNhDq&courseId=26740}{试看地址}.
+视频教程试看的话，请点击：\url{http://v.xue.taobao.com/learn.htm?spm=2013.1.0.0.959eebeTPNhDq&courseId=26740}.
 
 \keywords{折叠桌\quad  曲线拟合\quad   非线性优化模型\quad  受力分析}
 \end{abstract}
 
-\section{问题重述} 
+%目录
+\tableofcontents
+
+\section{问题重述}
 
 创意平板折叠桌注重于表达木制品的优雅和设计师所想要强调的自动化与功能性。为了增大有效使用面积。设计师以长方形木板的宽为直径截取了一个圆形作为桌面，又将木板剩余的面积切割成了若干个长短不一的木条，每根木条的长度为平板宽到圆上一点的距离，分别用两根钢筋贯穿两侧的木条，使用者只需提起木板的两侧，便可以在重力的作用下达到自动升起的效果，相互对称的木条宛如下垂的桌布，精密的制作工艺配以质朴的木材，让这件工艺品看起来就像是工业革命时期的机器。
 
@@ -41,7 +44,7 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的\LaTeX{}模板, 旨�
 （1）给定长方形平板尺寸 （$120 cm \times 50 cm \times 3 cm$），每根木条宽度（2.5 cm），连接桌腿木条的钢筋的位置，折叠后桌子的高度（53 cm）。要求建立模型描述此折叠桌的动态变化过程，并在此基础上给出此折叠桌的设计加工参数和桌脚边缘线的数学描述。
 
 （2）......
- 
+
 
 \section{模型的假设}
 
@@ -64,14 +67,14 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的\LaTeX{}模板, 旨�
  T	    & 木条根数  \\ \hline
 \end{tabular}
 \end{center}
- 
+
 \section{问题分析}
 
 \subsection{问题一分析}
 题目要求建立模型描述折叠桌的动态变化图，由于在折叠时用力大小的不同，我们不能描述在某一时刻折叠桌的具体形态，但我们可以用每根木条的角度变化来描述折叠桌的动态变化。首先，我们知道折叠桌前后左右对称，我们可以运用几何知识求出四分之一木条的角度变化。最后，根据初始时刻和最终形态两种状态求出桌腿木条开槽的长度。
 
- 
- 
+
+
 
 问题流程图：
 \begin{figure}[!h]
