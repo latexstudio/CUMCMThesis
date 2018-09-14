@@ -23,9 +23,13 @@
  \begin{abstract}
 cumcmthesis 是为全国大学生数学建模竞赛编写的\LaTeX{}模板, 旨在让大家专注于 论文的内容写作, 而不用花费过多精力在格式的定制和调整上. 本手册是相应的参考, 其 中提供了一些环境和命令可以让模板的使用更为方便. 同时需要注意, 使用者需要有一 定的 \LaTeX{} 的使用经验, 至少要会使用常用宏包的一些功能, 比如参考文献，数学公式，图片使用，列表环境等等. 例子文件参看 example.pdf.
 
-另外, 本模板制作了视频使用教程, 参看\url{https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-3473795048.2.ZlPoPL&id=43823508044}.
+另外, 欢迎大家购买我们是视频教程，点击\href{https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-3473795048.4.ThFQCG&id=43823508044}{\fbox{这里}}。
 
-视频教程试看的话，请点击：\url{http://v.xue.taobao.com/learn.htm?spm=2013.1.0.0.959eebeTPNhDq&courseId=26740}.
+欢迎大家到QQ群里沟通交流：91940767.
+
+\uwave{关注我们的微信公众号}：
+
+\centerline{\includegraphics[width=5cm]{gongzhonghao}}
 
 \keywords{折叠桌\quad  曲线拟合\quad   非线性优化模型\quad  受力分析}
 \end{abstract}
@@ -134,7 +138,7 @@ tabular环境的必选参数由每列对应一个格式字符所组成：c表示
 
 \newpage
 %附录
-\appendix
+\begin{appendices}
 \section{排队算法--matlab 源程序}
 \begin{lstlisting}[language=matlab]
 kk=2;[mdd,ndd]=size(dd);
@@ -180,6 +184,6 @@ end;
 S=ss;
 D=dd(1,:);
  \end{lstlisting}
-
+\end{appendices}
 
 \end{document} 

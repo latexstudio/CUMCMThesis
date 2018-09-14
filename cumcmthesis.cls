@@ -68,6 +68,17 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{listings}
 \RequirePackage{xcolor}
 
+\RequirePackage[titles]{tocloft}
+\renewcommand{\cftdot}{$\cdot$}
+\renewcommand{\cftsecdotsep}{1.5} 
+\setlength{\cftbeforesecskip}{7pt}
+\setlength{\cftbeforesubsecskip}{3pt}
+\renewcommand{\cftsecfont}{\bfseries\zihao{-4}\heiti}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand{\cftsecaftersnumb}{\hskip.4em}
+
+
+
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -102,8 +113,17 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 尺寸计算
 \RequirePackage{calc}
 
+\RequirePackage[titletoc,title]{appendix}
+
+%\RequirePackage[title,toc,titletoc]{appendix}
+
+\RequirePackage{etoolbox}
+\AtBeginEnvironment{thebibliography}{%
+    \phantomsection
+    \addcontentsline{toc}{section}{\refname}
+    }
 % 超链接 hyperref 的设置
-%\RequirePackage{hyperref}
+\RequirePackage{hyperref}
 %% Document Layout
 % 页面布局
 \geometry{top=25mm,bottom=25mm,left=25mm,right=25mm}
@@ -194,17 +214,17 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 }
 
 % 超链接
-	% \hypersetup{%
-        % xetex,
-		% % unicode=false, % hyperref 和 xetex 同时使用时不能开启 Unicode 选项.
-        % pdfstartview=FitH,
-        % CJKbookmarks=true,
-        % bookmarksnumbered=true,
-        % bookmarksopen=true,
-        % colorlinks, %注释掉此项则交叉引用为彩色边框(将colorlinks和pdfborder同时注释掉)
-        % pdfborder=001,   %注释掉此项则交叉引用为彩色边框
-		% allcolors=blue,
-		% breaklinks=true}%
+	 \hypersetup{%
+         xetex,
+		% unicode=false, % hyperref 和 xetex 同时使用时不能开启 Unicode 选项.
+         pdfstartview=FitH,
+         CJKbookmarks=true,
+         bookmarksnumbered=true,
+         bookmarksopen=true,
+         colorlinks, %注释掉此项则交叉引用为彩色边框(将colorlinks和pdfborder同时注释掉)
+         pdfborder=001,   %注释掉此项则交叉引用为彩色边框
+		 allcolors=black,
+		 breaklinks=true}%
 % \if@mcm@bwprint
 % \AtBeginDocument{\hypersetup{hidelinks}}
 % \else\relax\fi
@@ -417,10 +437,12 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 	{\noindent\zihao{-4}\heiti\mcm@cap@keywordsname：}~{\mcm@tokens@keywords}
 	}
 % 定义附录	
-\renewcommand\appendix{\par
-	\setcounter{section}{0}%
-	 \setcounter{subsection}{0}%
-	\gdef\thesection{\appendixname\@Alph\c@section}}		
+
+% \renewcommand{\setthesection}{\appendixname\Alph{section}}
+% \renewcommand\appendix{\par
+	% \setcounter{section}{0}%
+	 % \setcounter{subsection}{0}%
+	% \gdef\thesection{\appendixname\@Alph\c@section}}		
 % 重定义参考文献环境
 \renewenvironment{thebibliography}[1]
      {\section*{\refname}%
@@ -500,8 +522,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
  我们仔细阅读了《全国大学生数学建模竞赛章程》和《全国大学生数学建模竞赛参赛规则》%
 \hspace*{-0.6em}（以下简称为“竞赛章程和参赛规则”，\hspace{-0.2em}可从全国大学生数学建模竞赛网站下载）。
 
-我们完全明白，在竞赛开始后参赛队员不能以任何方式（包括电话、电子邮件、网上咨询等）%
-与队外的任何人（包括指导教师）研究、讨论与赛题有关的问题。
+我们完全明白，在竞赛开始后参赛队员不能以任何方式（包括电话、电子邮件、网上QQ群、微信群等）与队外的任
+何人（包括指导教师）研究、讨论与赛题有关的问题。
 
 我们知道，抄袭别人的成果是违反竞赛章程和参赛规则的，如果引用别人的成果或资料（包括网上资料），
 必须按照规定的参考文献的表述方式列出，并在正文引用处予以标注。在网上交
@@ -546,12 +568,12 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 }
 %设置目录格式
 % 节的目录格式
-\titlecontents{section}[0pt]{\vspace{2mm}\bfseries}
-{\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
-% 小节的目录格式
-\titlecontents{subsection}[30pt]{\songti}
-{\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
-\titlecontents{subsubsection}[55pt]{\songti}
-{\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
+% \titlecontents{section}[0pt]{\vspace{2mm}\bfseries}
+% {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
+% % 小节的目录格式
+% \titlecontents{subsection}[30pt]{\songti}
+% {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
+% \titlecontents{subsubsection}[55pt]{\songti}
+% {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
 
 \endinput
