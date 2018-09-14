@@ -15,7 +15,17 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的LaTeX模板, 旨在�
 
 ![](https://github.com/latexstudio/CUMCMThesis/blob/master/example-2.png)
 
+![](https://github.com/latexstudio/CUMCMThesis/blob/master/example-3.png)
+
+![](https://github.com/latexstudio/CUMCMThesis/blob/master/example-4.png)
+
 ## 更新记录
+2018年9月14日更新：
+
+1，修改前面的承诺书内容。
+
+2，修改附录链接问题，目录格式。
+
 2017年8月14日更新说明：
 
 1. 请大家使用TeXLive 2017 进行编译，下载地址：http://www.latexstudio.net 首页焦点图。
