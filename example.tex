@@ -37,86 +37,125 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的\LaTeX{}模板, 旨�
 %目录
 \tableofcontents
 
-\section{问题重述}
+\newpage
 
-创意平板折叠桌注重于表达木制品的优雅和设计师所想要强调的自动化与功能性。为了增大有效使用面积。设计师以长方形木板的宽为直径截取了一个圆形作为桌面，又将木板剩余的面积切割成了若干个长短不一的木条，每根木条的长度为平板宽到圆上一点的距离，分别用两根钢筋贯穿两侧的木条，使用者只需提起木板的两侧，便可以在重力的作用下达到自动升起的效果，相互对称的木条宛如下垂的桌布，精密的制作工艺配以质朴的木材，让这件工艺品看起来就像是工业革命时期的机器。
+\section{模板的基本使用}
 
-\subsection{问题的提出}
-
-围绕创意平板折叠桌的动态变化过程、设计加工参数，本文依次提出如下问题：
-
-（1）给定长方形平板尺寸 （$120 cm \times 50 cm \times 3 cm$），每根木条宽度（2.5 cm），连接桌腿木条的钢筋的位置，折叠后桌子的高度（53 cm）。要求建立模型描述此折叠桌的动态变化过程，并在此基础上给出此折叠桌的设计加工参数和桌脚边缘线的数学描述。
-
-（2）......
-
-
-\section{模型的假设}
+要使用 \LaTeX{} 来完成建模论文，首先要确保正确安装一个 \LaTeX{} 的发行版本。
 
 \begin{itemize}
-\item 忽略实际加工误差对设计的影响；
-\item 木条与圆桌面之间的交接处缝隙较小，可忽略；
-\item 钢筋强度足够大，不弯曲；
-\item 假设地面平整。
+    \item Mac 下可以使用 Mac\TeX{} ；
+    \item Linux 下可以使用 \TeX{}Live ；
+    \item windows 下可以使用 \TeX{}Live 或者 Mik\TeX{} ;
 \end{itemize}
 
-\section{符号说明}
-\begin{center}
-\begin{tabular}{cc}
- \hline
- \makebox[0.3\textwidth][c]{符号}	&  \makebox[0.4\textwidth][c]{意义} \\ \hline
- D	    & 木条宽度（cm） \\ \hline
- L	    & 木板长度（cm）  \\ \hline
- W	    & 木板宽度（cm）  \\ \hline
- N	    & 第n根木条  \\ \hline
- T	    & 木条根数  \\ \hline
-\end{tabular}
-\end{center}
+具体安装可以参考 \href{https://github.com/OsbertWang/install_latex/releases/download/v4.6/Install-LaTeX.pdf}{Install-LaTeX.pdf} 或者其它靠谱的文章。另外可以安装一个易用的编辑器，例如 \href{https://github.com/texstudio-org/texstudio/releases/download/2.12.16/texstudio-2.12.16-win-qt5.exe}{\TeX{}studio} 。
 
-\section{问题分析}
+使用该模板前，请阅读模板的使用说明文档。下面给出模板使用的大概样式。
 
-\subsection{问题一分析}
-题目要求建立模型描述折叠桌的动态变化图，由于在折叠时用力大小的不同，我们不能描述在某一时刻折叠桌的具体形态，但我们可以用每根木条的角度变化来描述折叠桌的动态变化。首先，我们知道折叠桌前后左右对称，我们可以运用几何知识求出四分之一木条的角度变化。最后，根据初始时刻和最终形态两种状态求出桌腿木条开槽的长度。
+\begin{tcode}
+    \documentclass{cumcmthesis}
+    %\documentclass[withoutpreface,bwprint]{cumcmthesis} %去掉封面与编号页
+    
+    \title{论文题目}
+    \tihao{A}            % 题号
+    \baominghao{4321}    % 报名号
+    \schoolname{你的大学}
+    \membera{成员A}
+    \memberb{成员B}
+    \memberc{成员C}
+    \supervisor{指导老师}
+    \yearinput{2017}     % 年
+    \monthinput{08}      % 月
+    \dayinput{22}        % 日
+    
+    \begin{document}
+        \maketitle
+        \begin{abstract}
+            摘要的具体内容。 
+            \keywords{关键词1\quad  关键词2\quad   关键词3}
+        \end{abstract}
+        \tableofcontents
+        \section{问题重述}
+        \subsection{问题的提出}
+        \section{模型的假设}
+        \section{符号说明}
+        \begin{center}
+            \begin{tabular}{cc}
+                \hline
+                \makebox[0.3\textwidth][c]{符号}	&  \makebox[0.4\textwidth][c]{意义} \\ \hline
+                D	    & 木条宽度（cm） \\ \hline
+            \end{tabular}
+        \end{center}
+        \section{问题分析}
+        \section{总结}
+        \begin{thebibliography}{9}%宽度9
+            \bibitem{bib:one} ....
+        \end{thebibliography}
+        \begin{appendices}
+            附录的内容。
+        \end{appendices}
+    \end{document}
+\end{tcode}
 
+根据要求，电子版论文提交时需要去掉封面和编号页。此时可以加上 \verb|withoutpreface|  选项，即：
+\begin{tcode}
+    \documentclass[withoutpreface]{cumcmthesis}
+\end{tcode}
+这样就能实现了。打印的时候有超链接的地方不需要彩色，可以加上 \verb|bwprint| 选项。
 
+团队的信息填入指定的位置，并且确保信息的正确性，以免因此白忙一场。
 
+编译记得使用 \verb|xelatex|，而不是用 \verb|pdflatex|。
 
-问题流程图：
+下面给出写作与排版上的一些建议。
+
+\section{图片}
+
+建模中不可避免要插入图片。图片可以分为矢量图与位图。位图推荐使用 \verb|jpg,png| 这两种格式，避免使用 \verb|bmp| 这类图片，容易出现图片插入失败这样情况的发生。矢量图一般有 \verb|pdf,eps| ，推荐使用 \verb|pdf|  格式的图片，尽量不要使用 \verb|eps| 图片，理由相同。
+
+注意图片的命名，避免使用中文来命名图片，可以用英文与数字的组合来命名图片。避免使用\verb|1,2,3| 这样顺序的图片命名方式。图片多了，自己都不清楚那张图是什么了，命名尽量让它有意义。下面是一个插图的示例代码。
 \begin{figure}[!h]
-\centering
-\includegraphics[width=.6\textwidth]{1.png}
-\caption{问题三流程图}
+    \centering
+    \includegraphics[width=.6\textwidth]{f1.png}
+    \caption{问题三流程图}
+    \label{fig:flow-chart}
 \end{figure}
+
+注意 \verb|figure| 环境是一个浮动体环境，图片的最终位置可能会跑动。\verb|[!h]| 中的 \verb|h| 是 here 的意思， \verb|!| 表示忽略一些浮动体的严格规则。另外里面还可以加上 \verb|btp| 选项，它们分别是 bottom, top, page 的意思。只要这几个参数在花括号里面，作用是不分先后顺序的。page 在这里表示浮动页。
+
+\verb|\label{fig:flow-chart}| 是一个标签，供交叉引用使用的。例如 \verb|图~\ref{fig:flow-chart}| 的实际效果是图~\ref{fig:flow-chart}。图片是自动编号的，比起手动编号，它更加高效。 \verb|label| 要确保唯一，命名方式推荐用图片的命名方式。
 
 \section{绘制普通三线表格}
 表格应具有三线表格式，因此常用 booktabs宏包，其标准格式如表~\ref{tab001}~所示。
 \begin{table}[!htbp]
-\caption{标准三线表格}\label{tab001} \centering
-\begin{tabular}{ccccc}
-\toprule[1.5pt]
-$D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
-\midrule[1pt]
- 5 & 269.8 & 0.000674 & 1.79 & 0.04089\\
-10 & 421.0 & 0.001035 & 3.59 & 0.04089\\
-20 & 640.2 & 0.001565 & 7.18 & 0.04089\\
-\bottomrule[1.5pt]
-\end{tabular}
+    \caption{标准三线表格}\label{tab001} \centering
+    \begin{tabular}{ccccc}
+        \toprule[1.5pt]
+        $D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
+        \midrule[1pt]
+        5 & 269.8 & 0.000674 & 1.79 & 0.04089\\
+        10 & 421.0 & 0.001035 & 3.59 & 0.04089\\
+        20 & 640.2 & 0.001565 & 7.18 & 0.04089\\
+        \bottomrule[1.5pt]
+    \end{tabular}
 \end{table}
 
 其绘制表格的代码及其说明如下。
 \begin{tcode}
-\begin{table}[!htbp]
-\caption[标签名]{中文标题}
-\begin{tabular}{cc...c}
-\toprule[1.5pt]
-表头第1个格   & 表头第2个格   & ... & 表头第n个格  \\
-\midrule[1pt]
-表中数据(1,1) & 表中数据(1,2) & ... & 表中数据(1,n)\\
-表中数据(2,1) & 表中数据(2,2) & ... & 表中数据(2,n)\\
-...................................................\\
-表中数据(m,1) & 表中数据(m,2) & ... & 表中数据(m,n)\\
-\bottomrule[1.5pt]
-\end{tabular}
-\end{table}
+    \begin{table}[!htbp]
+        \caption[标签名]{中文标题}
+        \begin{tabular}{cc...c}
+            \toprule[1.5pt]
+            表头第1个格   & 表头第2个格   & ... & 表头第n个格  \\
+            \midrule[1pt]
+            表中数据(1,1) & 表中数据(1,2) & ... & 表中数据(1,n)\\
+            表中数据(2,1) & 表中数据(2,2) & ... & 表中数据(2,n)\\
+            ...................................................\\
+            表中数据(m,1) & 表中数据(m,2) & ... & 表中数据(m,n)\\
+            \bottomrule[1.5pt]
+        \end{tabular}
+    \end{table}
 \end{tcode}
 
 \bigskip
@@ -127,19 +166,163 @@ tabular环境的必选参数由每列对应一个格式字符所组成：c表示
 \verb|\toprule|、\verb|\midrule|和\verb|\bottomrule|三个命令是由booktabs宏包提供的，其
 中\verb|\toprule|和\verb|\bottomrule|分别用来绘制表格的第一条（表格最顶部）和第三条（表格最底部）水平线，
 \verb|\midrule|用来绘制第二条（表头之下）水平线，且第一条和第三条水平线的线宽为1.5pt，第二条水平线的线宽为1pt。
-引用方法：“如表~\verb|\ref{标签名}|~所示”。
+引用方法与图片的相同。
 
+\section{公式}
+
+数学建模必然涉及不少数学公式的使用。下面简单介绍一个可能用得上的数学环境。
+
+首先是行内公式，例如 $ \theta $ 是角度。行内公式使用 \verb|$  $| 包裹。
+
+行间公式不需要编号的可以使用 \verb|\[  \]| 包裹，例如
+\[
+E=mc^2
+\]
+其中 $ E $ 是能量，$ m $ 是质量，$ c $ 是光速。
+
+如果希望某个公式带编号，并且在后文中引用可以参考下面的写法：
+\begin{equation}
+E=mc^2
+\label{eq:energy}
+\end{equation}
+式~\ref{eq:energy}是质能方程。
+
+以上仅简单介绍了基础的使用，对于更复杂的需求，可以阅读相关的宏包手册，如 \href{http://texdoc.net/texmf-dist/doc/latex/amsmath/amsldoc.pdf}{amsmath}。
+
+下面简单介绍一下定理、证明等环境的使用。
+\begin{definition}
+    定义环境
+    \label{def:nosense}
+\end{definition}
+定义~\ref{def:nosense}除了告诉你怎么使用这个环境以外，没有什么其它的意义。
+
+除了 definition 环境，还可以使用 theorem 、lemma、corollary、assumption、conjecture、axiom、principle、problem、example、proof、solution 这些环境，根据论文的实际需求合理使用。
+
+\begin{theorem}
+    这是一个定理。
+\end{theorem}
+
+\begin{lemma}
+    这是一个引理。
+\end{lemma}
+
+\begin{corollary}
+    这是一个推论。
+\end{corollary}
+
+\begin{assumption}
+    这是一个假设。
+\end{assumption}
+
+\begin{conjecture}
+    这是一个猜想。
+\end{conjecture}
+
+\begin{axiom}
+    这是一个公理。
+\end{axiom}
+
+\begin{principle}
+    这是一个定律。
+\end{principle}
+
+\begin{problem}
+    这是一个问题。
+\end{problem}
+
+
+\begin{example}
+    这是一个例子。
+\end{example}
+
+\begin{proof}
+    这是一个证明。
+\end{proof}
+
+\begin{solution}
+    这是一个解。
+\end{solution}
+
+
+
+\section{其它小功能}
+\subsection{脚注}
+
+利用 \verb|footnote{具体内容}| 可以生成脚注\footnote{脚注可以补充说明一些东西}。
+
+
+\subsection{无序列表与有序列表}
+
+无序列表是这样的：
+\begin{itemize}
+    \item one
+    \item two 
+    \item ...
+\end{itemize}
+
+有序列表是这样子的：
+\begin{enumerate}
+    \item one 
+    \item two 
+    \item ...
+\end{enumerate}
+
+
+\section{参考文献与引用}
+
+参考文献对于一篇正式的论文来说是必不可少的，在建模中重要的参考文献当然应该列出。\LaTeX{}在这方面的功能也是十分强大的，下面进介绍一个比较简单的参考文献制作方法。有兴趣的可以学习 \verb|bibtex| 或 \verb|biblatex| 的使用。
+
+\LaTeX{}的入门书籍可以看《\LaTeX{}入门》\cite{liuhaiyang2013latex}。这是一个简单的引用，通过 \verb|\cite{bibkey}| 来完成。要引用成功，当然要维护好 bibitem 了。下面是个简单的例子。
 
 %参考文献
 \begin{thebibliography}{9}%宽度9
- \bibitem{bib:one} ....
- \bibitem{bib:two} ....
+    \bibitem[1]{liuhaiyang2013latex}
+    刘海洋.
+    \newblock \LaTeX {}入门\allowbreak[J].
+    \newblock 电子工业出版社, 北京, 2013.
+    \bibitem[2]{mathematical-modeling}
+    全国大学生数学建模竞赛论文格式规范 (2013 年 8 月 26 日修改).
 \end{thebibliography}
 
 \newpage
 %附录
 \begin{appendices}
+
+\section{模板所用的宏包}
+\begin{table}[htbp]
+    \centering
+    \caption{宏包罗列}
+    \begin{tabular}{ccccc}
+        \toprule
+        \multicolumn{5}{c}{模板中已经加载的宏包} \\
+        \midrule
+        amsbsy & amsfonts & {amsgen} & {amsmath} & {amsopn} \\
+        amssymb & amstext & {appendix} & {array} & {atbegshi} \\
+        atveryend & auxhook & {bigdelim} & {bigintcalc} & {bigstrut} \\
+        bitset & bm    & {booktabs} & {calc} & {caption} \\
+        caption3 & CJKfntef & {cprotect} & {ctex} & {ctexhook} \\
+        ctexpatch & enumitem & {etexcmds} & {etoolbox} & {everysel} \\
+        expl3 & fix-cm & {fontenc} & {fontspec} & {fontspec-xetex} \\
+        geometry & gettitlestring & {graphics} & {graphicx} & {hobsub} \\
+        hobsub-generic & hobsub-hyperref & {hopatch} & {hxetex} & {hycolor} \\
+        hyperref & ifluatex & {ifpdf} & {ifthen} & {ifvtex} \\
+        ifxetex & indentfirst & {infwarerr} & {intcalc} & {keyval} \\
+        kvdefinekeys & kvoptions & {kvsetkeys} & {l3keys2e} & {letltxmacro} \\
+        listings & longtable & {lstmisc} & {ltcaption} & {ltxcmds} \\
+        multirow & nameref & {pdfescape} & {pdftexcmds} & {refcount} \\
+        rerunfilecheck & stringenc & {suffix} & {titletoc} & {tocloft} \\
+        trig  & ulem  & {uniquecounter} & {url} & {xcolor} \\
+        xcolor-patch & xeCJK & {xeCJKfntef} & {xeCJK-listings} & {xparse} \\
+        xtemplate & zhnumber &       &       &  \\
+        \bottomrule
+    \end{tabular}%
+    \label{tab:addlabel}%
+\end{table}%
+
+以上宏包都已经加载过了，不要重复加载它们。
+
 \section{排队算法--matlab 源程序}
+
 \begin{lstlisting}[language=matlab]
 kk=2;[mdd,ndd]=size(dd);
 while ~isempty(V)
@@ -159,7 +342,9 @@ dd=[dd,[tmp3;tmp(tmp4,2)]];V(tmp(tmp4,3))=[];
 [mdd,ndd]=size(dd);kk=kk+1;
 end; S=ss; D=dd(1,:);
  \end{lstlisting}
+ 
  \section{规划解决程序--lingo源代码}
+ 
 \begin{lstlisting}[language=c]
 kk=2;
 [mdd,ndd]=size(dd);
