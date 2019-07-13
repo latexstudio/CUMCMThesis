@@ -5,6 +5,7 @@
 %\documentclass[withoutpreface,bwprint]{cumcmthesis} %去掉封面与编号页
 
 \usepackage{url}
+\usepackage{subcaption}
 \title{全国大学生数学建模竞赛编写的 \LaTeX{} 模板}
 \tihao{A}
 \baominghao{4321}
@@ -126,6 +127,49 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的\LaTeX{}模板, 旨�
 
 \verb|\label{fig:flow-chart}| 是一个标签，供交叉引用使用的。例如 \verb|图~\ref{fig:flow-chart}| 的实际效果是图~\ref{fig:flow-chart}。图片是自动编号的，比起手动编号，它更加高效。 \verb|label| 要确保唯一，命名方式推荐用图片的命名方式。
 
+图片并排的需求解决方式多种多样，下面用 \verb|minipage| 环境来展示一个简单的例子。注意，以下例子用到了 \verb|subcaption| 命令，需要加载 subcaption 宏包。
+
+\begin{figure}
+    \centering
+    \begin{minipage}[c]{0.3\textwidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{f1}
+        \subcaption{Caption for image a}
+        \label{fig:sample-figure-a}
+    \end{minipage}
+    \begin{minipage}[c]{0.3\textwidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{f1}
+        \subcaption{Caption for image b}
+        \label{fig:sample-figure-b}
+    \end{minipage}
+    \begin{minipage}[c]{0.3\textwidth}
+        \centering
+        \includegraphics[width=0.95\textwidth]{f1}
+        \subcaption{Caption for image c}
+        \label{fig:sample-figure-c}
+    \end{minipage}
+    \caption{多图并排示例}
+    \label{fig:sample-figure}
+\end{figure}
+这相当于整体是一张大图片，大图片引用是图~\ref{fig:sample-figure}，子图引用别分是图~\ref{fig:sample-figure-a}、图~\ref{fig:sample-figure-b}、图~\ref{fig:sample-figure-c}。
+
+如果原本两张图片的高度不同，但是希望它们缩放后等高的排在同一行，参考这个例子：
+\begin{figure}
+    \centering
+    \begin{minipage}[c]{0.48\textwidth}
+        \centering
+        \includegraphics[height=0.3\textheight]{f1}
+        \subcaption{Caption for image a}
+    \end{minipage}
+    \begin{minipage}[c]{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.3\textheight]{gongzhonghao}
+        \subcaption{Caption for image b}
+    \end{minipage}
+    \caption{多图并排示例}
+\end{figure}
+
 \section{绘制普通三线表格}
 表格应具有三线表格式，因此常用 booktabs宏包，其标准格式如表~\ref{tab001}~所示。
 \begin{table}[!htbp]
@@ -187,7 +231,39 @@ E=mc^2
 \end{equation}
 式~\ref{eq:energy}是质能方程。
 
+多行公式有时候希望能够在特定的位置对齐，以下是其中一种处理方法。
+\begin{align}
+P & = UI \\
+& = I^2R
+\end{align}
+\verb|&| 是对齐的位置， \verb|&| 可以有多个，但是每行的个数要相同。
+
+矩阵的输入也不难。
+\[ 
+\mathbf{X} = \left(
+    \begin{array}{cccc}
+    x_{11} & x_{12} & \ldots & x_{1n}\\
+    x_{21} & x_{22} & \ldots & x_{2n}\\
+    \vdots & \vdots & \ddots & \vdots\\
+    x_{n1} & x_{n2} & \ldots & x_{nn}\\
+    \end{array} \right) 
+\]
+
+分段函数这些可以用 \verb|case| 环境，但是它要放在数学环境里面。
+\[ 
+f(x) =
+    \begin{cases}
+        0 &  x \text{为无理数} ,\\
+        1 &  x \text{为有理数} .
+    \end{cases} 
+\]
+在数学环境里面，字体用的是数学字体，一般与正文字体不同。假如要公式里面有个别文字，则需要把这部分放在 \verb|text| 环境里面，即 \verb|\text{文本环境}| 。
+
+公式中个别需要加粗的字母可以用 \verb|$\bm{math symbol}$| 。如 $ \alpha a\bm{\alpha a} $ 。
+
 以上仅简单介绍了基础的使用，对于更复杂的需求，可以阅读相关的宏包手册，如 \href{http://texdoc.net/texmf-dist/doc/latex/amsmath/amsldoc.pdf}{amsmath}。
+
+希腊字母这些如果不熟悉，可以去查找符号文件 \href{http://mirrors.ctan.org/info/symbols/comprehensive/symbols-a4.pdf}{symbols-a4.pdf} ，也可以去 \href{http://detexify.kirelabs.org/classify.html}{detexify} 网站手写识别。另外还有数学公式识别软件 \href{https://mathpix.com/}{mathpix} 。
 
 下面简单介绍一下定理、证明等环境的使用。
 \begin{definition}
