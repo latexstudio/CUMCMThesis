@@ -1,5 +1,5 @@
 % !Mode:: "TeX:UTF-8"
-%!TEX program  = xelatex
+% !TEX program  = xelatex
 
 \documentclass{cumcmthesis}
 %\documentclass[withoutpreface,bwprint]{cumcmthesis} %去掉封面与编号页
@@ -32,7 +32,7 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的\LaTeX{}模板, 旨�
 
 \centerline{\includegraphics[width=5cm]{gongzhonghao}}
 
-\keywords{折叠桌\quad  曲线拟合\quad   非线性优化模型\quad  受力分析}
+\keywords{\TeX{}\quad  图片\quad   表格\quad  公式}
 \end{abstract}
 
 %目录
@@ -107,7 +107,14 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的\LaTeX{}模板, 旨�
 
 团队的信息填入指定的位置，并且确保信息的正确性，以免因此白忙一场。
 
-编译记得使用 \verb|xelatex|，而不是用 \verb|pdflatex|。
+编译记得使用 \verb|xelatex|，而不是用 \verb|pdflatex|。在命令行编译的可以按如下方式编译：
+\begin{tcode}
+	xelatex example
+\end{tcode}
+或者使用 \verb|latexmk| 来编译，更推荐这种方式。
+\begin{tcode}
+	latexmk -xelatex example
+\end{tcode}
 
 下面给出写作与排版上的一些建议。
 
@@ -118,8 +125,8 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的\LaTeX{}模板, 旨�
 注意图片的命名，避免使用中文来命名图片，可以用英文与数字的组合来命名图片。避免使用\verb|1,2,3| 这样顺序的图片命名方式。图片多了，自己都不清楚那张图是什么了，命名尽量让它有意义。下面是一个插图的示例代码。
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=.6\textwidth]{f1.png}
-    \caption{问题三流程图}
+    \includegraphics[width=.6\textwidth]{smokeblk}
+    \caption{电路图}
     \label{fig:flow-chart}
 \end{figure}
 
@@ -134,19 +141,19 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的\LaTeX{}模板, 旨�
     \begin{minipage}[c]{0.3\textwidth}
         \centering
         \includegraphics[width=0.95\textwidth]{f1}
-        \subcaption{Caption for image a}
+        \subcaption{流程图}
         \label{fig:sample-figure-a}
     \end{minipage}
     \begin{minipage}[c]{0.3\textwidth}
         \centering
         \includegraphics[width=0.95\textwidth]{f1}
-        \subcaption{Caption for image b}
+        \subcaption{流程图}
         \label{fig:sample-figure-b}
     \end{minipage}
     \begin{minipage}[c]{0.3\textwidth}
         \centering
         \includegraphics[width=0.95\textwidth]{f1}
-        \subcaption{Caption for image c}
+        \subcaption{流程图}
         \label{fig:sample-figure-c}
     \end{minipage}
     \caption{多图并排示例}
@@ -159,13 +166,13 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的\LaTeX{}模板, 旨�
     \centering
     \begin{minipage}[c]{0.48\textwidth}
         \centering
-        \includegraphics[height=0.3\textheight]{f1}
-        \subcaption{Caption for image a}
+        \includegraphics[height=0.25\textheight]{cat}
+        \subcaption{一只猫}
     \end{minipage}
     \begin{minipage}[c]{0.48\textwidth}
         \centering
-        \includegraphics[width=0.3\textheight]{gongzhonghao}
-        \subcaption{Caption for image b}
+        \includegraphics[height=0.25\textheight]{smokeblk}
+        \subcaption{电路图}
     \end{minipage}
     \caption{多图并排示例}
 \end{figure}
