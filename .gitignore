@@ -29,3 +29,4 @@ tmp-pdfcrop-13964.tex
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
+Temp/*
