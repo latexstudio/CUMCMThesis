@@ -28,7 +28,7 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的 `LaTeX` 模板, 旨
 
 2017年8月14日更新说明：
 
-1. 请大家使用较新的 `LaTeX` 发行版本进行编译，下载地址：http://www.latexstudio.net/page/texsoftware 首页焦点图。
+1. 请大家使用较新的 `LaTeX` 发行版本进行编译，下载地址：http://www.latexstudio.net/page/texsoftware 首页焦点图。不要使用 `CTeX` 套装。
 
 2. 遇到问题可以到91940767群进行交流或478023327群交流
 

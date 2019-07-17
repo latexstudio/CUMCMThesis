@@ -45,7 +45,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
 \RequirePackage{bm}
-\RequirePackage{titletoc}
+%\RequirePackage{titletoc}
 % 设置颜色
 \RequirePackage{xcolor}
 % 插入图片
@@ -69,10 +69,12 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{xcolor}
 
 \RequirePackage[titles]{tocloft}
-\renewcommand{\cftdot}{$\cdot$}
-\renewcommand{\cftsecdotsep}{1.5} 
+%\renewcommand{\cftdot}{$\cdot$}
+%\renewcommand{\cftsecdotsep}{1.5} 
+\renewcommand{\cftsecdotsep}{4.5}
 \setlength{\cftbeforesecskip}{7pt}
 \setlength{\cftbeforesubsecskip}{3pt}
+%\setlength{\cftbeforesubsecskip}{5pt}
 \renewcommand{\cftsecfont}{\bfseries\zihao{-4}\heiti}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
 \renewcommand{\cftsecaftersnumb}{\hskip.4em}
@@ -124,6 +126,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     }
 % 超链接 hyperref 的设置
 \RequirePackage{hyperref}
+% 智能自动化交叉引用
+\RequirePackage{cleveref}
 %% Document Layout
 % 页面布局
 \geometry{top=25mm,bottom=25mm,left=25mm,right=25mm}
@@ -215,7 +219,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 % 超链接
 	 \hypersetup{%
-         xetex,
+%         xetex,
 		% unicode=false, % hyperref 和 xetex 同时使用时不能开启 Unicode 选项.
          pdfstartview=FitH,
          CJKbookmarks=true,
@@ -228,6 +232,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % \if@mcm@bwprint
 % \AtBeginDocument{\hypersetup{hidelinks}}
 % \else\relax\fi
+\pdfstringdefDisableCommands{%
+	\def\cftdotfill{ }%
+}
 \lstnewenvironment{tcode}
   {
     \lstset{basicstyle = \small\ttfamily,
@@ -241,7 +248,31 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     }
   }
   {}
+%%% crefformat settings
+\crefformat{figure}{#2图~#1#3}
+\crefrangeformat{figure}{图~(#3#1#4)\;\~{}\;(#5#2#6)}
+\crefmultiformat{figure}{图~(#2#1#3)}{和~(#2#1#3)}{，(#2#1#3)}{和~(#2#1#3)}
 
+\crefformat{table}{#2表#1#3}
+\crefrangeformat{table}{表(#3#1#4)\;\~{}\;(#5#2#6)}
+\crefmultiformat{table}{表~(#2#1#3)}{和~(#2#1#3)}{，(#2#1#3)}{和~(#2#1#3)}
+
+\crefformat{equation}{#2~(#1#3)}
+\crefrangeformat{equation}{~(#3#1#4)\;\~{}\;(#5#2#6)}
+\crefmultiformat{equation}{~(#2#1#3)}{ 和~(#2#1#3)}{，(#2#1#3)}{ 和~(#2#1#3)}
+
+\crefformat{definition}{#2\mcm@cap@definition~#1#3}
+\crefformat{theorem}{#2\mcm@cap@theorem~#1#3}
+\crefformat{lemma}{#2\mcm@cap@lemma~#1#3}
+\crefformat{corollary}{#2\mcm@cap@corollary~#1#3}
+\crefformat{assumption}{#2\mcm@cap@assumption~#1#3}
+\crefformat{conjecture}{#2\mcm@cap@conjecture~#1#3}
+\crefformat{axiom}{#2\mcm@cap@axiom~#1#3}
+\crefformat{principle}{#2\mcm@cap@principle~#1#3}
+\crefformat{problem}{#2\mcm@cap@problem~#1#3}
+\crefformat{example}{#2\mcm@cap@example~#1#3}
+\crefformat{proof}{#2\mcm@cap@proof~#1#3}
+\crefformat{solution}{#2\mcm@cap@solution~#1#3}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Document Markup
