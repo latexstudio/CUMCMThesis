@@ -1,10 +1,10 @@
 
-## 全国大学生数学建模竞赛LaTeX论文模板
+## 全国大学生数学建模竞赛 LaTeX 论文模板  QQ 群：640633524
 
-cumcmthesis 是为全国大学生数学建模竞赛编写的LaTeX模板, 旨在让大家专注于
+cumcmthesis 是为全国大学生数学建模竞赛编写的 `LaTeX` 模板, 旨在让大家专注于
 论文的内容写作, 而不用花费过多精力在格式的定制和调整上. 本手册是相应的参考, 其
 中提供了一些环境和命令可以让模板的使用更为方便. 同时需要注意, 使用者需要有一
-定的 LaTeX 的使用经验, 至少要会使用 ctex 宏包的一些功能, 比如调节字距或修改字体
+定的 `LaTeX` 的使用经验, 至少要会使用 `ctex` 宏包的一些功能, 比如调节字距或修改字体
 大小等等. 例子文件参看 [example.pdf](https://github.com/latexstudio/CUMCMThesis/blob/master/example.pdf).
 
 另外, 本模板制作了视频使用教程, 参看[这里](https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-3473795048.2.ZlPoPL&id=43823508044). 
@@ -32,7 +32,7 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的LaTeX模板, 旨在�
 
 2017年8月14日更新说明：
 
-1. 请大家使用TeXLive 2017 进行编译，下载地址：http://www.latexstudio.net 首页焦点图。
+1. 请大家使用较新的 `LaTeX` 发行版本进行编译，下载地址：http://www.latexstudio.net/page/texsoftware 首页焦点图。不要使用 `CTeX` 套装。
 
 2. 遇到问题可以到91940767群进行交流或478023327群交流
 
@@ -44,9 +44,10 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的LaTeX模板, 旨在�
 
 
 如果需要去掉封面并把论文标题保留在摘要上面，在加载类的使用如下语句：
-
+```
     \documentclass[withoutpreface,bwprint]{cumcmthesis}
-
+```
 如果需要封面页，则是与原来一致：
-
+```
     \documentclass[bwprint]{cumcmthesis}
+```
