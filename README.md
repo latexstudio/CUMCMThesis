@@ -10,7 +10,7 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的 `LaTeX` 模板, 旨
 另外, 本模板制作了视频使用教程, 参看[这里](https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-3473795048.2.ZlPoPL&id=43823508044). 
 
 
-![](https://github.com/latexstudio/CUMCMThesis/blob/master/figures/gongzhonghao2.png)
+![](https://github.com/latexstudio/CUMCMThesis/blob/master/figures/gongzhonghao2.png){:width="230"}
 
 
 视频教程试看的话，请点击：[试看地址](http://v.xue.taobao.com/learn.htm?spm=2013.1.0.0.kx3j3X&courseId=26740).
