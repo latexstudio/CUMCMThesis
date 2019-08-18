@@ -12,9 +12,12 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的 `LaTeX` 模板, 旨
 <img src="https://github.com/latexstudio/CUMCMThesis/blob/master/figures/gongzhonghao2.png" alt="" width="350px">
 
 2019年建模模板的免费视频教程：
-![https://www.bilibili.com/video/av64191560](https://www.bilibili.com/video/av64191560)
 
-![https://www.bilibili.com/video/av64221508](https://www.bilibili.com/video/av64221508)
+第一部分：
+[https://www.bilibili.com/video/av64191560](https://www.bilibili.com/video/av64191560)
+
+第二部分：
+[https://www.bilibili.com/video/av64221508](https://www.bilibili.com/video/av64221508)
 
 
 ![](https://github.com/latexstudio/CUMCMThesis/blob/master/example-1.png)
