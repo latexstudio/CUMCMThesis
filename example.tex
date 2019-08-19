@@ -4,8 +4,6 @@
 \documentclass{cumcmthesis}
 %\documentclass[withoutpreface,bwprint]{cumcmthesis} %去掉封面与编号页
 
-\usepackage{url}   % 网页链接
-\usepackage{subcaption} % 子标题
 \title{全国大学生数学建模竞赛编写的 \LaTeX{} 模板}
 \tihao{A}
 \baominghao{4321}
@@ -57,7 +55,7 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的\LaTeX{}模板, 旨�
 \begin{tcode}
     \documentclass{cumcmthesis}
     %\documentclass[withoutpreface,bwprint]{cumcmthesis} %去掉封面与编号页
-    
+
     \title{论文题目}
     \tihao{A}            % 题号
     \baominghao{4321}    % 报名号
@@ -69,11 +67,11 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的\LaTeX{}模板, 旨�
     \yearinput{2017}     % 年
     \monthinput{08}      % 月
     \dayinput{22}        % 日
-    
+
     \begin{document}
         \maketitle
         \begin{abstract}
-            摘要的具体内容。 
+            摘要的具体内容。
             \keywords{关键词1\quad  关键词2\quad   关键词3}
         \end{abstract}
         \tableofcontents
@@ -242,23 +240,23 @@ P & = UI \\
 \verb|&| 是对齐的位置， \verb|&| 可以有多个，但是每行的个数要相同。
 
 矩阵的输入也不难。
-\[ 
+\[
 \mathbf{X} = \left(
     \begin{array}{cccc}
     x_{11} & x_{12} & \ldots & x_{1n}\\
     x_{21} & x_{22} & \ldots & x_{2n}\\
     \vdots & \vdots & \ddots & \vdots\\
     x_{n1} & x_{n2} & \ldots & x_{nn}\\
-    \end{array} \right) 
+    \end{array} \right)
 \]
 
 分段函数这些可以用 \verb|case| 环境，但是它要放在数学环境里面。
-\[ 
+\[
 f(x) =
     \begin{cases}
         0 &  x \text{为无理数} ,\\
         1 &  x \text{为有理数} .
-    \end{cases} 
+    \end{cases}
 \]
 在数学环境里面，字体用的是数学字体，一般与正文字体不同。假如要公式里面有个别文字，则需要把这部分放在 \verb|text| 环境里面，即 \verb|\text{文本环境}| 。
 
@@ -379,14 +377,14 @@ f(x) =
 无序列表是这样的：
 \begin{itemize}
     \item one
-    \item two 
+    \item two
     \item ...
 \end{itemize}
 
 有序列表是这样子的：
 \begin{enumerate}
-    \item one 
-    \item two 
+    \item one
+    \item two
     \item ...
 \end{enumerate}
 
@@ -401,6 +399,17 @@ f(x) =
 参考文献对于一篇正式的论文来说是必不可少的，在建模中重要的参考文献当然应该列出。\LaTeX{}在这方面的功能也是十分强大的，下面进介绍一个比较简单的参考文献制作方法。有兴趣的可以学习 \verb|bibtex| 或 \verb|biblatex| 的使用。
 
 \LaTeX{}的入门书籍可以看《\LaTeX{}入门》\cite{liuhaiyang2013latex}。这是一个简单的引用，用 \verb|\cite{bibkey}| 来完成。要引用成功，当然要维护好 bibitem 了。下面是个简单的例子。
+
+同时,为了可以当作上标来引用,自定义了两种命令:
+\verb|\upcite{bibkey}| 这样\upcite{liuhaiyang2013latex}的;
+或者\verb|\supercite{bibkey}| 这样\supercite{liuhaiyang2013latex}的;
+
+他们是通过以下自定义命令实现:
+\begin{tcode}
+\newcommand{\upcite}[1]{$^{\mbox{\scriptsize \cite{#1}}}$}
+\newcommand{\supercite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+\end{tcode}
+\bigskip
 
 \newpage
 
@@ -472,9 +481,9 @@ dd=[dd,[tmp3;tmp(tmp4,2)]];V(tmp(tmp4,3))=[];
 [mdd,ndd]=size(dd);kk=kk+1;
 end; S=ss; D=dd(1,:);
  \end{lstlisting}
- 
+
  \section{规划解决程序--lingo源代码}
- 
+
 \begin{lstlisting}[language=c]
 kk=2;
 [mdd,ndd]=size(dd);
@@ -501,4 +510,4 @@ D=dd(1,:);
  \end{lstlisting}
 \end{appendices}
 
-\end{document} 
+\end{document}
