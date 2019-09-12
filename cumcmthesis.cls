@@ -369,7 +369,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
    	3.\uline{\hspace{1em}\mcm@tokens@memberc\hfill} \makebox[0.46em]{}\par
    \end{minipage}\par\vskip1ex
     \mcm@commit@string@supervisorname\uline{\hspace{1em}\mcm@tokens@supervisor\hfill}\makebox[0.66em]{}\par
-    （{\kaishu 指导教师签名意味着对参赛队的行为和论文的真实性负责}）
+    \hspace{0.1cm} （{\kaishu 指导教师签名意味着对参赛队的行为和论文的真实性负责}）
     %{\kaishu\mcm@commit@string@inform\par}
     \vskip2ex
     \newlength{\mcm@lenA}
@@ -593,15 +593,12 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand*\mcm@commit@string@titlea{\the\year 高教社杯全国大学生数学建模竞赛}
 \newcommand*\mcm@commit@string@titleb{承\hspace{1em}诺\hspace{1em}书}
 \newcommand\mcm@commit@string@contents{\quotation
- 我们仔细阅读了《全国大学生数学建模竞赛章程》和《全国大学生数学建模竞赛参赛规则》%
-\hspace*{-0.6em}（以下简称为“竞赛章程和参赛规则”，\hspace{-0.2em}可从全国大学生数学建模竞赛网站下载）。
+我们仔细阅读了《全国大学生数学建模竞赛章程》和《全国大学生数学建模竞赛参赛规则》（2019年修订稿，以下简称为“竞赛章程和参赛规则”，可从全国大学生数学建模竞赛网站下载）。
 
-我们完全明白，在竞赛开始后参赛队员不能以任何方式（包括电话、电子邮件、网上QQ群、微信群等）与队外的任
-何人（包括指导教师）研究、讨论与赛题有关的问题。
+我们完全清楚，在竞赛开始后参赛队员不能以任何方式，包括电话、电子邮件、“贴吧”、QQ群、微信群等，与队外的任何人（包括指导教师）交流、讨论与赛题有关的问题；无论主动参与讨论还是被动接收讨论信息都是严重违反竞赛纪律的行为。
 
-我们知道，抄袭别人的成果是违反竞赛章程和参赛规则的，如果引用别人的成果或资料（包括网上资料），
-必须按照规定的参考文献的表述方式列出，并在正文引用处予以标注。在网上交
-流和下载他人的论文是严重违规违纪行为。
+我们完全清楚，抄袭别人的成果是违反竞赛章程和参赛规则的行为；如果引用别人的成果或资料（包括网上资料），必须按照规定的参考文献的表述方式列出，并在正文引用处予以标注。
+
 
 {\bfseries\song 我们以中国大学生名誉和诚信郑重承诺，严格遵守竞赛章程和参赛规则，以保证竞赛的公正、公平性。
 如有违反竞赛章程和参赛规则的行为，我们将受到严肃处理。}
@@ -610,7 +607,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 （包括进行网上公示，在书籍、期刊和其他媒体进行正式或非正式发表等）。
 \endquotation
 }
-\newcommand*\mcm@commit@string@problemnum{我们参赛选择的题号（从A/B/C/D中选择一项填写）：}
+\newcommand*\mcm@commit@string@problemnum{我们参赛选择的题号（从A/B/C/D/E中选择一项填写）：}
 \newcommand*\mcm@commit@string@signupnum{我们的报名参赛队号（12位数字全国统一编号）：}
 \newcommand*\mcm@commit@string@schoolname{参赛学校（完整的学校全称，不含院系名）：}
 \newcommand*\mcm@commit@string@membername{参赛队员 (打印并签名) ：}
