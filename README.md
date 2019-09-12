@@ -8,7 +8,7 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的 `LaTeX` 模板, 旨
 大小等等. 例子文件参看 [example.pdf](https://github.com/latexstudio/CUMCMThesis/blob/master/example.pdf).
 
 另外, 本模板制作了视频使用教程, 参看[这里](https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-3473795048.2.ZlPoPL&id=43823508044). 
- 
+
 <img src="https://github.com/latexstudio/CUMCMThesis/blob/master/figures/gongzhonghao2.png" alt="" width="350px">
 
 2019年建模模板的免费视频教程：
@@ -28,7 +28,14 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的 `LaTeX` 模板, 旨
 
 ## 更新记录
 2019年8月更新：
+1，适配官网格式：[](http://mcm.edu.cn/html_cn/node/8e7b0262daa56b8953d1b6ccaada9ed4.html)。
+
+2，增加了更新说明，格式的说明，视频依然可以使用！
+
+2019年8月更新：
+
 1，更新说明文件和样例。
+
 2，增加了免费视频教程和基础知识介绍。
 
 2018年9月14日更新：
