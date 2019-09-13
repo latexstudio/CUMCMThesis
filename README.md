@@ -27,8 +27,10 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的 `LaTeX` 模板, 旨
 ![](https://github.com/latexstudio/CUMCMThesis/blob/master/example-4.png)
 
 ## 更新记录
-2019年8月更新：
-1，适配官网格式：[](http://mcm.edu.cn/html_cn/node/8e7b0262daa56b8953d1b6ccaada9ed4.html)。
+
+2019年9月更新：
+
+1，适配官网格式：[http://mcm.edu.cn/html_cn/node/8e7b0262daa56b8953d1b6ccaada9ed4.html](http://mcm.edu.cn/html_cn/node/8e7b0262daa56b8953d1b6ccaada9ed4.html)。
 
 2，增加了更新说明，格式的说明，视频依然可以使用！
 
