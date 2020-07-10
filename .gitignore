@@ -31,3 +31,4 @@ tmp-pdfcrop-13964.tex
 *.pdfsync
 Temp/*
 simkai.ttf
+.vscode/*
