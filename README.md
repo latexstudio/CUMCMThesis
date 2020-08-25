@@ -1,5 +1,5 @@
 
-## 全国大学生数学建模竞赛 LaTeX 论文模板  QQ 群：640633524
+## 全国大学生数学建模竞赛 LaTeX 论文模板  
 
 cumcmthesis 是为全国大学生数学建模竞赛编写的 `LaTeX` 模板, 旨在让大家专注于
 论文的内容写作, 而不用花费过多精力在格式的定制和调整上. 本手册是相应的参考, 其
@@ -10,6 +10,9 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的 `LaTeX` 模板, 旨
 另外, 本模板制作了视频使用教程, 参看[这里](https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-3473795048.2.ZlPoPL&id=43823508044). 
 
 <img src="https://github.com/latexstudio/CUMCMThesis/blob/master/figures/gongzhonghao2.png" alt="" width="350px">
+
+
+
 
 2019年建模模板的免费视频教程：
 
@@ -27,6 +30,13 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的 `LaTeX` 模板, 旨
 ![](https://github.com/latexstudio/CUMCMThesis/blob/master/example-4.png)
 
 ## 更新记录
+
+
+2020 年 8 月：
+
+1，适配官网新格式的封面和编号页。格式在[这里](http://www.mcm.edu.cn/html_cn/node/2ecdb523ea364d8fff6928ada7ebd923.html)
+
+2，调整了部分的内容和说明。
 
 2019年9月更新：
 

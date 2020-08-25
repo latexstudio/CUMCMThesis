@@ -2,7 +2,9 @@
 % !TEX program  = xelatex
 
 \documentclass{cumcmthesis}
-%\documentclass[withoutpreface,bwprint]{cumcmthesis} %去掉封面与编号页
+%\documentclass[withoutpreface,bwprint]{cumcmthesis} %去掉封面与编号页，电子版提交的时候使用。
+
+
 \usepackage[framemethod=TikZ]{mdframed}
 \usepackage{url}   % 网页链接
 \usepackage{subcaption} % 子标题
@@ -10,11 +12,11 @@
 \tihao{A}
 \baominghao{4321}
 \schoolname{XX大学}
-\membera{小米}
-\memberb{向左}
-\memberc{哈哈}
-\supervisor{老师}
-\yearinput{2017}
+\membera{ }
+\memberb{ }
+\memberc{ }
+\supervisor{ }
+\yearinput{2020}
 \monthinput{08}
 \dayinput{22}
 
@@ -29,29 +31,29 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的\LaTeX{}模板, 旨�
 	linecolor=gray!50,
 	outerlinewidth=0.5pt,
 	middlelinewidth=0.3pt, backgroundcolor=gray!2,
-innertopmargin=\topskip, frametitle={2019年建模比赛格式变化说明},
+innertopmargin=\topskip, frametitle={2020 年建模比赛格式变化说明},
 frametitlefont= \bfseries,frametitlerule=true,frametitlealignment =\raggedright\noindent,
 frametitlerulewidth=.5pt, frametitlebackgroundcolor=gray!2,]
 今年的格式变化主要就是三个地方，如下：
 \begin{enumerate}
 \item 论文第一页为承诺书，\textbf{\color{red}内容进行了调整}。
 
-\item 第三条，论文第三页为摘要专用页（含标题和关键词，但不需要翻译成英文），从此页开始编写页码；页码必须位于每页页脚中部，用阿拉伯数字从“1”开始连续编号。\textbf{\color{red}摘要专用页必须单独一页，且篇幅不能超过一页}。
+\item 编号页格式进行了格式调整。
 
-\item 第四条，从第四页开始是论文正文（\textbf{\color{red}不要目录}，尽量控制在20页以内）；正文之后是论文附录（页数不限）。
+\item 这是19年调整了，这里延续说明下。论文正文（\textbf{\color{red}不要目录}，尽量控制在20页以内）；正文之后是论文附录（页数不限）。
 
 \end{enumerate}
 
 \end{mdframed}
 
 
-我们模板已经快速地进行了相应的格式调整。
+\url{https://www.latexstudio.net} 陆续推出了更优质的资源，欢迎学习 。
 
 欢迎大家到QQ群里沟通交流：91940767/478023327/640633524。我们也开通了问答区交流 \LaTeX{}技术：\url{https://wenda.latexstudio.net}，欢迎大家前来交流，有问题就来这里，与大神零距离。
 
 \uwave{关注我们的微信公众号}：
 
-\centerline{\includegraphics[width=7cm]{gongzhonghao2}}
+\centerline{\includegraphics[width=10cm]{gongzhonghao2}}
 
 \keywords{\TeX{}\quad  图片\quad   表格\quad  公式}
 \end{abstract}
@@ -66,7 +68,7 @@ frametitlerulewidth=.5pt, frametitlebackgroundcolor=gray!2,]
 要使用 \LaTeX{} 来完成建模论文，首先要确保正确安装一个 \LaTeX{} 的发行版本。
 
 \begin{itemize}
-    \item Mac 下可以使用 Mac\TeX{} ；
+    \item Mac 下可以使用 Mac\TeX{}
     \item Linux 下可以使用 \TeX{}Live ；
     \item windows 下可以使用 \TeX{}Live 或者 Mik\TeX{} ;
 \end{itemize}
@@ -371,30 +373,6 @@ f(x) =
 
 利用 \verb|\footnote{具体内容}| 可以生成脚注\footnote{脚注可以补充说明一些东西}。
 
-\subsection{部分特殊符号的输入}
-
-每门编程语言都会把部分符号拿来使用，要输出符号本身就需要转义， \TeX{}也不例外。
-
-\begin{table}[!ht]
-	\centering
-	\begin{tabular}{cc}
-		\toprule
-		符号            &  输入                   \\
-		\midrule
-		\%              &  \verb|\%|             \\
-		\&              &  \verb|\&|             \\
-		\$              &  \verb|\$|             \\
-		\{              &  \verb|\{|             \\
-		\}              &  \verb|\}|             \\
-		\#              &  \verb|\#|             \\
-		\_              &  \verb|\_|             \\
-		\^{}            &  \verb|\^{}|           \\
-		\~{}            &  \verb|\~{}|           \\
-		\textbackslash  &  \verb|\textbackslash| \\
-		\bottomrule
-	\end{tabular}
-\end{table}
-
 \subsection{无序列表与有序列表}
 
 无序列表是这样的：
@@ -423,7 +401,7 @@ f(x) =
 
 \LaTeX{}的入门书籍可以看《\LaTeX{}入门》\cite{liuhaiyang2013latex}。这是一个简单的引用，用 \verb|\cite{bibkey}| 来完成。要引用成功，当然要维护好 bibitem 了。下面是个简单的例子。
 
-\newpage
+ 
 
 %参考文献
 \begin{thebibliography}{9}%宽度9
@@ -432,7 +410,8 @@ f(x) =
     \newblock \LaTeX {}入门\allowbreak[J].
     \newblock 电子工业出版社, 北京, 2013.
     \bibitem[2]{mathematical-modeling}
-    全国大学生数学建模竞赛论文格式规范 (2019 年 9 月 12 日修改).
+    全国大学生数学建模竞赛论文格式规范 (2020 年 8 月 25 日修改).
+    \bibitem{3} \url{https://www.latexstudio.net}
 \end{thebibliography}
 
 \newpage
