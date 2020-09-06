@@ -23,12 +23,13 @@
 \DeclareOption{colorprint}{\@mcm@bwprintfalse}
 \DeclareOption{bwprint}{\@mcm@bwprinttrue}
 \DeclareOption{withoutpreface}{\@mcm@prefacefalse}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\PassOptionsToPackage{AutoFakeBold}{xeCJK}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexart}}
 %% Executing of Options
 \ExecuteOptions{colorprint}
 \ProcessOptions\relax
 %% Loading Class
-\LoadClass[a4paper,12pt]{article}
+\LoadClass[a4paper,12pt,AutoFakeBold=true]{ctexart}
 %% Loading Package
 \RequirePackage{ifxetex}
 \RequireXeTeX
@@ -37,7 +38,7 @@
 Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \fi
 % 支持中文的 ctex 宏包
-\RequirePackage{ctex}
+% \RequirePackage[]{ctex}
 % 页面布局
 \RequirePackage{geometry}
 % 数学宏包
@@ -151,13 +152,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 每行缩进两个汉字
 \setlength\parindent{2em}
 % 设置字体
-\setmainfont{Times New Roman}
+% \setmainfont{Times New Roman}
 %\setmonofont{Courier New}
-\setsansfont{Arial}
-\setCJKfamilyfont{kai}[AutoFakeBold]{simkai.ttf}
-\newcommand*{\kai}{\CJKfamily{kai}}
-\setCJKfamilyfont{song}[AutoFakeBold]{SimSun}
-\newcommand*{\song}{\CJKfamily{song}}
+% \setsansfont{Arial}
+% \setCJKfamilyfont{kai}[AutoFakeBold]{simkai.ttf}
+% \newcommand*{\kai}{\CJKfamily{kai}}
+% \setCJKfamilyfont{song}[AutoFakeBold]{SimSun}
+% \newcommand*{\song}{\CJKfamily{song}}
 
 \renewcommand\normalsize{%
 	\@setfontsize\normalsize{12.05}{14.45}%
@@ -378,7 +379,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     \mcm@commit@string@year\uline{\hfill\mcm@tokens@monthinput\hfill}\mcm@commit@string@month%
     \uline{\hfill\mcm@tokens@dayinput\hfill}\mcm@commit@string@day\makebox[1em]{}\par}
     \vskip1ex
-    {\kaishu\bfseries\mcm@commit@string@inform\par}
+    {\mcm@commit@string@inform\par}
 	\vfill
 	\null
 % 编号专用页
@@ -467,11 +468,11 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \renewcommand\thesubsection{\arabic{section}\thinspace.\thinspace\arabic{subsection}}
 \renewcommand\thesubsubsection{\thesubsection\thinspace.\thinspace\arabic{subsubsection}}
 \renewcommand\section{\@startsection{section}{1}{\z@}%
- 	{-3.5ex \@plus -1ex \@minus -.2ex}%
+{-0.0ex \@plus -0.5ex \@minus -1.0ex}%
 	{2.3ex \@plus.2ex}%
 	{\centering\normalfont\Large\bfseries}}
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
-	{-3.25ex\@plus -1ex \@minus -.2ex}%
+{-0.25ex\@plus -0.5ex \@minus -.2ex}%
 	{1.5ex \@plus .2ex}%
 	{\normalfont\large\bfseries}}
 \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
@@ -605,7 +606,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 我们完全清楚，在竞赛中必须合法合规地使用文献资料和软件工具，不能有任何侵犯知识产权的行为。否则我们将失去评奖资格，并可能受到严肃处理。
 
-{\bfseries\song 我们以中国大学生名誉和诚信郑重承诺，严格遵守竞赛章程和参赛规则，以保证竞赛的公正、公平性。如有违反竞赛章程和参赛规则的行为，我们将受到严肃处理。}
+{\rmfamily\bfseries 我们以中国大学生名誉和诚信郑重承诺，严格遵守竞赛章程和参赛规则，以保证竞赛的公正、公平性。如有违反竞赛章程和参赛规则的行为，我们将受到严肃处理。}
 
 我们授权全国大学生数学建模竞赛组委会，可将我们的论文以任何形式进行公开展示（包括进行网上公示，在书籍、期刊和其他媒体进行正式或非正式发表等）。
 \endquotation
@@ -616,7 +617,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand*\mcm@commit@string@membername{参赛队员 (打印并签名) ：}
 \newcommand*\mcm@commit@string@supervisorname{指导教师或指导教师组负责人  (打印并签名)：}
 \newcommand\mcm@commit@string@inform{\quotation
-\noindent{（\bfseries\kai 请勿改动此页内容和格式。此承诺书打印签名后作为纸质论文的封面，注意电子版论文中不得出现此页。%
+\noindent{（\ttfamily\bfseries 请勿改动此页内容和格式。此承诺书打印签名后作为纸质论文的封面，注意电子版论文中不得出现此页。%
 以上内容请仔细核对，如填写错误，论文可能被取消评奖资格。）}
 \endquotation
 }
@@ -640,7 +641,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 \newcommand*\mcm@numberpage@string@countrynum{送全国评阅统一编号:\par \hspace*{2em}（赛区组委会填写）}
 \newcommand\mcm@numberpage@string@inform{\quotation
-\noindent（{\bfseries\kai 请勿改动此页内容和格式。此编号专用页仅供赛区和全国评阅使用，参赛队打印后装订到纸质论文的第二页上。
+\noindent（{\ttfamily\bfseries 请勿改动此页内容和格式。此编号专用页仅供赛区和全国评阅使用，参赛队打印后装订到纸质论文的第二页上。
 注意电子版论文中不得出现此页。}）
 \endquotation
 }
