@@ -137,6 +137,10 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{hyperref}
 % 智能自动化交叉引用
 \RequirePackage{cleveref}
+% 页码位于页脚中部
+\RequirePackage{fancyhdr}
+\pagestyle{plain}
+
 %% Document Layout
 % 页面布局
 \geometry{top=25mm,bottom=25mm,left=25mm,right=25mm}
