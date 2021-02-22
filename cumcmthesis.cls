@@ -355,26 +355,26 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     {\zihao{-4} \mcm@commit@string@contents \par}
     {\vskip1ex\zihao{-4}
     \renewcommand{\ULthickness}{0.4pt}\setlength{\ULdepth}{2pt}
-    \hspace*{2em}\mcm@commit@string@problemnum\uline{\hspace{1em}\mcm@tokens@tihao\hfill}\makebox[0.66em]{}\par
-    \mcm@commit@string@signupnum\uline{\hspace{1em}\mcm@tokens@baominghao\hfill}\makebox[0.66em]{}\par
+    \hspace*{2em}\mcm@commit@string@problemnum\uline{\mbox{\hspace{1em}}\mcm@tokens@tihao\hfill}\makebox[0.66em]{}\par
+    \mcm@commit@string@signupnum\uline{\mbox{\hspace{1em}}\mcm@tokens@baominghao\hfill}\makebox[0.66em]{}\par
     \mcm@commit@string@schoolname\uline{\hfill\mcm@tokens@schoolname\hfill}\makebox[0.66em]{}\par
     \newlength{\mcm@lenB}
-    \settowidth{\mcm@lenB}{\mcm@commit@string@membername\hspace{1em}1.}
+    \settowidth{\mcm@lenB}{\mcm@commit@string@membername\mbox{\hspace{1em}}1.}
     \setlength{\mcm@lenB}{\textwidth-\mcm@lenB}
     % 不这样做右边难以对齐!
     \mcm@commit@string@membername
     \begin{minipage}[t]{\mcm@lenB}
-   	1.\uline{\hspace{1em}\mcm@tokens@membera\hfill} \makebox[0.46em]{}\par
-   	2.\uline{\hspace{1em}\mcm@tokens@memberb\hfill} \makebox[0.46em]{}\par
-   	3.\uline{\hspace{1em}\mcm@tokens@memberc\hfill} \makebox[0.46em]{}\par
+   	1.\uline{\mbox{\hspace{1em}}\mcm@tokens@membera\hfill} \makebox[0.46em]{}\par
+   	2.\uline{\mbox{\hspace{1em}}\mcm@tokens@memberb\hfill} \makebox[0.46em]{}\par
+   	3.\uline{\mbox{\hspace{1em}}\mcm@tokens@memberc\hfill} \makebox[0.46em]{}\par
    \end{minipage}\par\vskip1ex
-    \mcm@commit@string@supervisorname\uline{\hspace{1em}\mcm@tokens@supervisor\hfill}\makebox[0.66em]{}\par
+    \mcm@commit@string@supervisorname\uline{\mbox{\hspace{1em}}\mcm@tokens@supervisor\hfill}\makebox[0.66em]{}\par
     \hspace{0.1cm} （{\kaishu 指导教师签名意味着对参赛队的行为和论文的真实性负责}）
     %{\kaishu\mcm@commit@string@inform\par}
     \vskip2ex
     \newlength{\mcm@lenA}
     \settowidth{\mcm@lenA}{请仔细核对，提交后将不再允许做任何修改。如}% 虽然"日期"刚好在"错误"下面, 但注意"日期"还会缩进, 所以要省去"填写""两字
-    \hspace*{\mcm@lenA}\mcm@commit@string@date\hspace{0.5em}\uline{\hfill\hspace{1em}\mcm@tokens@yearinput\hspace{1em}\hfill}%
+    \hspace*{\mcm@lenA}\mcm@commit@string@date\hspace{0.5em}\uline{\hfill\mbox{\hspace{1em}}\mcm@tokens@yearinput\mbox{\hspace{1em}}\hfill}%
     \mcm@commit@string@year\uline{\hfill\mcm@tokens@monthinput\hfill}\mcm@commit@string@month%
     \uline{\hfill\mcm@tokens@dayinput\hfill}\mcm@commit@string@day\makebox[1em]{}\par}
     \vskip1ex
