@@ -30,7 +30,8 @@ cumcmthesis 是为全国大学生数学建模竞赛编写的 `LaTeX` 模板, 旨
 ![](https://github.com/latexstudio/CUMCMThesis/blob/master/example-4.png)
 
 ## 更新记录
-
+2021 年 7 月：
+1， 更新 uline 与 hspace 的兼容问题。
 
 2020 年 8 月：
 
